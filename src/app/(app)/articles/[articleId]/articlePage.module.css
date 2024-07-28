@@ -1,0 +1,19 @@
+.title {
+  margin-block: var(--size-8) var(--size-5);
+  font-size: var(--scale-6);
+  font-weight: 700;
+}
+
+.date {
+  font-size: var(--scale-0);
+  font-weight: 400;
+  color: var(--text-inactive-0);
+  margin-block: var(--size-7) 0;
+  width: max-content;
+}
+
+.prose p {
+  margin-block: var(--size-3);
+  font-size: var(--scale-2);
+  font-weight: 400;
+}

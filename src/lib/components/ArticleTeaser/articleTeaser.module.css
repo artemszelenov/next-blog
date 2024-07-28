@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+  display: flex;
+  gap: var(--size-7);
+}
+
+.body {
+  display: grid;
+  grid-template-rows: 1fr max-content;
+  gap: var(--size-5);
+}
+
+.image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--size-3);
+  object-fit: cover;
+}
+
+.date {
+  font-size: var(--scale-00);
+  font-weight: 400;
+  color: var(--text-inactive-0);
+  margin: 0;
+}
+
+.title {
+  margin-block: var(--size-3);
+  font-size: var(--scale-4);
+  font-weight: 500;
+}
+
+.description {
+  margin-block: 0;
+  font-size: var(--scale-2);
+  font-weight: 400;
+}
+
+.linkButton {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+}
