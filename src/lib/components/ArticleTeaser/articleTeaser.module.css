@@ -44,3 +44,23 @@
     inset: 0;
   }
 }
+
+@media (width < 40em) {
+  .container {
+    gap: var(--size-4);
+  }
+
+  .image {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--size-2);
+  }
+
+  .title {
+    font-size: var(--scale-2);
+  }
+
+  .description {
+    font-size: var(--scale-0);
+  }
+}

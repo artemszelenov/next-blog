@@ -3,6 +3,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import Image from 'next/image'
 import Comments from '@/lib/components/Comments'
+import type { Metadata } from 'next'
 
 export default async function ArticlePage({
   children,
@@ -43,7 +44,16 @@ export default async function ArticlePage({
 
   return (
     <article className="container">
-      {url && <Image className={s.image} src={url} alt={article.title} width={200} height={200} />}
+      {url && (
+        <Image
+          className={s.image}
+          src={url}
+          alt={article.title}
+          width={768}
+          height={768}
+          sizes="100vw"
+        />
+      )}
 
       <h1 className={s.title}>{article.title}</h1>
 
@@ -56,4 +66,25 @@ export default async function ArticlePage({
       <Comments articleId={params.articleId} initialComments={initialComments} />
     </article>
   )
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    articleId: string
+  }
+}): Promise<Metadata> {
+  const payload = await getPayload({
+    config: configPromise,
+  })
+
+  const article = await payload.findByID({
+    collection: 'articles',
+    id: params.articleId,
+  })
+
+  return {
+    title: article.title,
+  }
 }

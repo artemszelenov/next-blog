@@ -1,3 +1,10 @@
+.image {
+  width: 100%;
+  height: clamp(130px, 30vw, 250px);
+  object-fit: cover;
+  border-radius: var(--size-2);
+}
+
 .title {
   margin-block: var(--size-8) var(--size-5);
   font-size: var(--scale-6);
@@ -16,4 +23,10 @@
   margin-block: var(--size-3);
   font-size: var(--scale-2);
   font-weight: 400;
+}
+
+@media (width < 40em) {
+  .title {
+    font-size: var(--scale-4);
+  }
 }

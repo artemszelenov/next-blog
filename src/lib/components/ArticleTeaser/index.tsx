@@ -7,19 +7,38 @@ type Props = {
   article: Article
 }
 
-export default function ({ article }: Props) {
-  const image = article.teaser_image
-  let url: string | null = null
+type Image = {
+  url?: string | null
+  width?: number | null
+  height?: number | null
+}
 
-  if (image && typeof image === 'object' && typeof image.url === 'string') {
-    url = image.url
+export default function ({ article }: Props) {
+  let imageToRender: Image | null = null
+
+  if (
+    article.teaser_image &&
+    typeof article.teaser_image === 'object' &&
+    typeof article.teaser_image.sizes === 'object' &&
+    typeof article.teaser_image.sizes.teaser === 'object'
+  ) {
+    imageToRender = article.teaser_image.sizes.teaser
   }
 
   const date = new Date(article.updatedAt).toDateString()
 
   return (
     <article className={s.container}>
-      {url && <Image className={s.image} src={url} alt={article.title} width={200} height={200} />}
+      {imageToRender && (
+        <Image
+          className={s.image}
+          src={imageToRender.url!}
+          alt={article.title}
+          width={imageToRender.width!}
+          height={imageToRender.height!}
+          sizes="200px"
+        />
+      )}
 
       <div className={s.body}>
         <div>

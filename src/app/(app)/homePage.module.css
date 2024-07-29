@@ -2,3 +2,9 @@
   display: grid;
   gap: var(--size-12);
 }
+
+@media (width < 40em) {
+  .list {
+    gap: var(--size-7);
+  }
+}

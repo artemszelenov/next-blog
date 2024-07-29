@@ -4,7 +4,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import LoadMore from '@/lib/components/LoadMore'
 
-const LIMIT = 2
+const LIMIT = 4
 
 export default async function HomePage({
   children,
@@ -35,17 +35,17 @@ export default async function HomePage({
   return (
     <section className="container">
       <ul className={s.list}>
-        {/* {initialArticles.map((doc) => (
+        {initialArticles.map((doc) => (
           <li key={doc.id}>
             <ArticleTeaser article={doc} />
           </li>
-        ))} */}
+        ))}
 
         <LoadMore
-          initialArticles={initialArticles}
-          pagination={{
+          initialPagination={{
             page,
             hasNextPage,
+            limit: LIMIT,
           }}
         />
       </ul>

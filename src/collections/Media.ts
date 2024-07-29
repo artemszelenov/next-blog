@@ -12,5 +12,18 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  upload: true,
+  upload: {
+    imageSizes: [
+      {
+        name: 'teaser',
+        width: 200,
+        height: 200,
+      },
+      {
+        name: 'full',
+        width: 1000,
+        height: undefined,
+      },
+    ],
+  },
 }

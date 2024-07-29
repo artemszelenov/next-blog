@@ -5,7 +5,7 @@ import cn from 'classnames'
 type Props =
   | {
       children: string
-      appearance: 'accent'
+      appearance: 'accent' | 'secondary'
       additionalClasses?: string[]
       [key: string]: any
     }

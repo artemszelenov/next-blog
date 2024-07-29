@@ -22,6 +22,30 @@
   }
 }
 
+.secondary {
+  display: block;
+  width: max-content;
+  padding-block: var(--size-2);
+  padding-inline: var(--size-5);
+  background-color: var(--color-slate-500);
+  color: white;
+  text-decoration: none;
+  border-radius: 9999px;
+  font-size: var(--scale-0);
+  font-weight: 400;
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+
+  &:focus {
+    outline: var(--color-slate-900) 2px solid;
+    outline-offset: 1px;
+  }
+
+  &:hover {
+    background-color: var(--color-slate-400);
+  }
+}
+
 .linkAccent {
   display: block;
   width: max-content;

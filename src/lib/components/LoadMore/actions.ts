@@ -4,18 +4,17 @@ import configPromise from '@payload-config'
 
 export async function loadMore(prevState: any, formData: FormData) {
   const nextPage = formData.get('next_page')
+  const limit = Number(formData.get('limit'))
 
-  if (!nextPage) return { newArticles: [] }
+  if (!nextPage || !limit) return { newArticles: [] }
 
   const payload = await getPayload({ config: configPromise })
 
-  const { docs } = await payload.find({
+  const { docs, page, hasNextPage } = await payload.find({
     collection: 'articles',
-    limit: 2,
     page: Number(nextPage),
+    limit,
   })
 
-  console.log('dddd', docs)
-
-  return { newArticles: docs }
+  return { newArticles: docs, pagination: { page, hasNextPage, limit } }
 }
