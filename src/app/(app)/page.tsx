@@ -6,11 +6,7 @@ import LoadMore from '@/lib/components/LoadMore'
 
 const LIMIT = 4
 
-export default async function HomePage({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default async function HomePage() {
   const payload = await getPayload({
     config: configPromise,
   })

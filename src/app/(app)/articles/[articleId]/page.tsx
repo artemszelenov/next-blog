@@ -6,10 +6,8 @@ import Comments from '@/lib/components/Comments'
 import type { Metadata } from 'next'
 
 export default async function ArticlePage({
-  children,
   params,
 }: Readonly<{
-  children: React.ReactNode
   params: {
     articleId: string
   }
